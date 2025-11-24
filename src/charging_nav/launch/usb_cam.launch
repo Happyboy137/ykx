@@ -1,0 +1,28 @@
+<launch>
+  <!-- 启动usb_cam节点 -->
+  <node name="usb_cam_node" pkg="usb_cam" type="usb_cam_node" output="screen">
+    <!-- 设置相机设备路径 -->
+    <param name="video_device" value="/dev/video0" />
+    
+    <!-- 设置图像分辨率和帧率 -->
+    <param name="image_width" value="640" />
+    <param name="image_height" value="480" />
+    <param name="framerate" value="30" />
+    
+    <!-- 设置像素格式为MJPEG -->
+    <param name="pixel_format" value="mjpeg" />
+    
+    <!-- 设置IO方法 -->
+    <param name="io_method" value="mmap" />
+    
+    <!-- 设置图像发布话题 -->
+    <param name="image_topic" value="/camera/color/image_raw" />
+    
+    <!-- 设置相机内参话题 -->
+    <param name="camera_info_topic" value="/camera/color/camera_info" />
+    
+    <!-- 设置相机内参文件 -->
+    <param name="camera_info_url" value="file:///home/ai/ykx_ws/src/charging_nav/config/camera_info.yaml" />
+
+  </node>
+</launch>

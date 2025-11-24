@@ -1,0 +1,36 @@
+camera_name: usb_cam_node
+
+distortion_model: plumb_bob
+image_width: 640
+image_height: 480
+
+# 相机内参矩阵
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [ 277.897609, 0.000000, 334.223879,   # fx, 0, cx
+          0.000000, 276.703483, 240.032639,   # 0, fy, cy
+          0.000000, 0.000000, 1.000000 ]      # 0, 0, 1
+
+# 畸变系数
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [ 0.053725, -0.029385, -0.000791, -0.001293, 0.000000 ]  # k1, k2, p1, p2, k3
+
+# 矫正矩阵（单位矩阵）
+rectification_matrix: !!opencv-matrix
+  rows: 3
+  cols: 3
+  dt: f
+  data: [ 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0 ]
+
+# 投影矩阵
+projection_matrix: !!opencv-matrix
+  rows: 3
+  cols: 4
+  dt: f
+  data: [ 283.657559, 0.000000, 333.592819, 0.000000, 
+          0.000000, 283.716513, 239.499240, 0.000000, 
+          0.000000, 0.000000, 1.000000, 0.000000 ]
+
